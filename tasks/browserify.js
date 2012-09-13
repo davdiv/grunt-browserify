@@ -18,6 +18,10 @@ module.exports = function (grunt) {
 
     var b = browserify(this.data.options || {});
 
+    if (this.data.initHook) {
+      this.data.initHook.call(this, b);
+    }
+
     (this.data.requires || []).forEach(function (req) {
       grunt.verbose.writeln('Adding "' + req + '" to the required module list');
       b.require(req);

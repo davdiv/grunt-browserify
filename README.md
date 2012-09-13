@@ -30,9 +30,13 @@ Add this to ```grunt.initConfig()```
         entries: ['src/**/*.js'],
         prepend: ['<banner:meta.banner>'],
         append: [],
+        initHook: function (bundle) {
+          // Do something with bundle just after its initialization
+        },
         hook: function (bundle) {
-          // Do something with bundle
+          // Do something with bundle just before its bundle method is called
         }
+
       }
     }
 ```
